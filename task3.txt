@@ -1,0 +1,20 @@
+
+-- 1
+select c.user_name, sum(p.price) from clients c
+join orders o using (id_users)
+join products p using (id_product)
+group by 1
+order by 1
+
+--2
+select c.user_name from clients c
+join orders o using (id_users)
+join products p using (id_product)
+where id_product = 5
+order by 1
+
+--3
+select p.product_name, count(o.id_product) from orders o
+join products p using (id_product)
+group by 1
+order by 1
